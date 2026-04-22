@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Reading List New Tab",
+  "version": "1.0",
+  "description": "Overrides new tab to display the reading list.",
+  "permissions": [
+    "readingList"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
