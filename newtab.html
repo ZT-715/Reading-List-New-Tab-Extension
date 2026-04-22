@@ -4,16 +4,87 @@
     <meta charset="utf-8">
     <title>Reading List</title>
     <style>
-        body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 800px; }
-        input { width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box; }
-        ul { list-style-type: none; padding: 0; }
-        li { padding: 8px 0; border-bottom: 1px solid #ddd; }
-        a { text-decoration: none; color: #0a58ca; }
+        /* 1. Theme Variables Configuration */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #0a58ca;
+            --border-color: #dddddd;
+            --input-bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #202124;
+                --text-color: #e8eaed;
+                --link-color: #8ab4f8;
+                --border-color: #3c4043;
+                --input-bg: #303134;
+            }
+        }
+
+        /* 2. Base Document Styling */
+        body {
+            font-family: system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 3. Horizontal Centering */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* 4. Sticky Header Mechanism */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            padding: 32px 0 16px 0;
+            z-index: 10;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        /* 5. List Rendering */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--link-color);
+            display: block;
+        }
     </style>
 </head>
 <body>
-<input type="text" id="searchInput" placeholder="Search reading list...">
-<ul id="listContainer"></ul>
+<div class="container">
+    <div class="header">
+        <input type="text" id="searchInput" placeholder="Search reading list...">
+    </div>
+    <ul id="listContainer"></ul>
+</div>
 <script src="newtab.js"></script>
 </body>
 </html>
